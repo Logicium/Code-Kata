@@ -1,0 +1,20 @@
+//Class initialization
+var Wrapper = function(){
+
+};
+
+//Static wrapping function
+Wrapper.wrap = function(longString, columnNumber){
+    columnNumber = Wrapper.findSpaceIndex(longString,columnNumber);
+    return longString.slice(0,columnNumber)+"\n"+longString.slice(columnNumber);
+};
+
+Wrapper.findSpaceIndex = function(longString,columnNumber){
+    for(var i = columnNumber-1;i>=0;i--){
+        if(longString.charAt(i)==' '){
+            return i+1;
+        }
+    }
+};
+
+console.log(Wrapper.wrap("hello world",7));
